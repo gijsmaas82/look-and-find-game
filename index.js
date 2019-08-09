@@ -15,8 +15,10 @@ for (let i = 0; i <images.length; i++){
     img.alt = images[i].name
     img.src = images[i].src
     img.style = 'height: 100px; position: absolute; bottom: ' + getRandomInt(0, 30) + 'rem; left: ' + getRandomInt(0, 60) + 'rem'
+    img.onclick = function () {
+        addToFoundItems(images[i])
+    } 
     main.appendChild(img)
-    console.log(img)
 }
 
 
@@ -25,3 +27,10 @@ function getRandomInt(x, y) {
     return number
 }
 
+const foundItems = []
+
+function addToFoundItems(image) {
+    if (!foundItems.includes(image)) {
+        foundItems.push(image)
+    } 
+}
